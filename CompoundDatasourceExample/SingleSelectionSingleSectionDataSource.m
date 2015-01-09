@@ -14,9 +14,9 @@
     for (int row = 0; row < self.array.count; ++row) {
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:indexPath.section]];
         if (row == indexPath.row) {
-            [cell setSelected:YES];
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
         } else {
-            [cell setSelected:NO];
+            cell.accessoryType = UITableViewCellAccessoryNone;
         }
     }
 }
