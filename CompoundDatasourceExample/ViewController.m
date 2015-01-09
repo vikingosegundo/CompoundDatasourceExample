@@ -26,6 +26,9 @@
     [self.tableViewDataSource setDataSource:[[SingleSelectionSingleSectionDataSource alloc] initWithArray:@[@"Hallo", @"Welt"]] forSection:0];
     [self.tableViewDataSource setDataSource:[[SingleSelectionSingleSectionDataSource alloc] initWithArray:@[@"Hello", @"World", @"!"]] forSection:1];
     [self.tableViewDataSource setDataSource:[[SingleSelectionSingleSectionDataSource alloc] initWithArray:@[@"Hola", @"Mundo", @"!", @"¿Que tal?"]] forSection:2];
+    [self.tableViewDataSource setDataSource:[[SingleSelectionSingleSectionDataSource alloc] initWithArray:@[@"Hallo", @"Welt"]] forSection:3];
+    [self.tableViewDataSource setDataSource:[[SingleSelectionSingleSectionDataSource alloc] initWithArray:@[@"Hello", @"World", @"!"]] forSection:4];
+    [self.tableViewDataSource setDataSource:[[SingleSelectionSingleSectionDataSource alloc] initWithArray:@[@"Hola", @"Mundo", @"!", @"¿Que tal?"]] forSection:5];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

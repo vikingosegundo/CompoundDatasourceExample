@@ -7,11 +7,12 @@
 //
 
 @import UIKit;
+#import "SingleSectionDataSource.h"
 
 @interface ComoundTableViewDataSource : NSObject
 @property (nonatomic,strong, readonly) NSMutableDictionary *internalDictionary;
 
 
--(void) setDataSource:(id<UITableViewDataSource>)dataSource forSection:(NSUInteger)section;
+-(void) setDataSource:(SingleSectionDataSource<UITableViewDataSource> *)dataSource forSection:(NSUInteger)section;
 -(instancetype)initWithTableView:(UITableView *)tableView;
 @end

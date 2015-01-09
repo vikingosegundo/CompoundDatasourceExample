@@ -22,15 +22,18 @@
         _tableView = tableView;
         tableView.dataSource = self;
         _internalDictionary = [@{} mutableCopy];
-        [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 
     }
     return self;
 }
 
--(void)setDataSource:(id<UITableViewDataSource>)dataSource forSection:(NSUInteger)section
+-(void)setDataSource:(SingleSectionDataSource<UITableViewDataSource> *)dataSource forSection:(NSUInteger)section
 {
+    [dataSource setSection:section];
     self.internalDictionary[@(section)] = dataSource;
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"Cell%lu", (unsigned long)section]];
+
     [self.tableView reloadData];
     
 }

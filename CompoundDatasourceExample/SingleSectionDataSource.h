@@ -11,6 +11,6 @@
 @interface SingleSectionDataSource : NSObject <UITableViewDataSource>
 @property (nonatomic, strong, readonly) NSArray *array;
 @property (nonatomic, strong, readonly) UITableView *tableView;
-
+@property (nonatomic, assign) NSUInteger section;
 - (instancetype)initWithArray:(NSArray *)array;
 @end

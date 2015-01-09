@@ -11,6 +11,7 @@
 @interface SingleSectionDataSource ()
 @property (nonatomic, strong, readwrite) NSArray *array;
 @property (nonatomic, strong, readwrite) UITableView *tableView;
+@property (nonatomic, copy) NSString *cellIdentifier;
 
 @end
 
@@ -26,18 +27,20 @@
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+
     return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     self.tableView = tableView;
+
     return self.array.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
     cell.textLabel.text = self.array[indexPath.row];
     return cell;
 }
@@ -45,6 +48,12 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return [@(section) stringValue];
+}
+
+-(void)setSection:(NSUInteger)section
+{
+    _section = section;
+    self.cellIdentifier = [NSString stringWithFormat:@"Cell%lu",(unsigned long)_section];
 }
 
 @end
